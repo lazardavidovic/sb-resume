@@ -1,0 +1,28 @@
+{
+  "title": "Lazar Davidović - Resume",
+  "name": "lazardavidovic-resume",
+  "version": "1.0.0",
+  "description": "Personal website resume/CV",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lazardavidovic/resume.git"
+  },
+  "keywords": [
+    "lazar",
+    "davidovic",
+    "lazardavidovic",
+    "resume",
+    "cv"
+  ],
+  "author": "Lazar Davidović",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lazardavidovic/resume/issues",
+    "email": "contact@lazardavidovic.com"
+  },
+  "homepage": "https://github.com/lazardavidovic/resume#readme"
+}
