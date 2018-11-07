@@ -1,0 +1,19 @@
+// Bootstrap overrides styling
+
+.bg-primary {
+    background-color: $primary !important;
+  }
+  
+  .text-primary {
+    color: $secondary !important;
+  }
+  
+  a {
+    color: $secondary;
+    &:hover,
+    &:focus,
+    &:active {
+      color: darken($primary, 15%);
+    }
+  }
+  
