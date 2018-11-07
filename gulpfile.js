@@ -109,3 +109,22 @@ gulp.task('browserSync', function () {
     }
   });
 });
+
+// Default task
+gulp.task('default', ['css', 'js', 'vendor']);
+
+// Configure the browserSync task
+gulp.task('browserSync', function () {
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    }
+  });
+});
+
+// Dev task
+gulp.task('dev', ['css', 'js', 'browserSync'], function () {
+  gulp.watch('./scss/*.scss', ['css']);
+  gulp.watch('./js/*.js', ['js']);
+  gulp.watch('./*.html', browserSync.reload);
+});
