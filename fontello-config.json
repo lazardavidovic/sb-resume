@@ -1,0 +1,28 @@
+{
+    "name": "",
+    "css_prefix_text": "icon-",
+    "css_use_suffix": false,
+    "hinting": true,
+    "units_per_em": 1000,
+    "ascent": 850,
+    "glyphs": [
+        {
+            "uid": "0f6a2573a7b6df911ed199bb63717e27",
+            "css": "github-circled",
+            "code": 61595,
+            "src": "fontawesome"
+        },
+        {
+            "uid": "33194d4a025fbf12baca54579afe4c8e",
+            "css": "at",
+            "code": 61946,
+            "src": "fontawesome"
+        },
+        {
+            "uid": "e9107949dd6c9e8ab2b29ae07156e38c",
+            "css": "linkdn",
+            "code": 61665,
+            "src": "fontawesome"
+        }
+    ]
+}

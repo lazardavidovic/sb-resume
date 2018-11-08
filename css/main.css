@@ -145,7 +145,7 @@ p.lead {
   font-size: 1.5rem;
 }
 
-.social-icons a {
+.contact-icons a {
   display: inline-block;
   height: 3.5rem;
   width: 3.5rem;
@@ -158,11 +158,11 @@ p.lead {
   margin-right: 1rem;
 }
 
-.social-icons a:last-child {
+.contact-icons a:last-child {
   margin-right: 0;
 }
 
-.social-icons a:hover {
+.contact-icons a:hover {
   background-color: #212529;
 }
 

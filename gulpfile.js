@@ -7,6 +7,8 @@ var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
 var pkg = require('./package.json');
 var browserSync = require('browser-sync').create();
+var plugins = require('gulp-load-plugins')();
+var print = require('gulp-print').default;
 
 // Copy third party libraries from /node_modules into /vendor
 gulp.task('vendor', function () {
@@ -110,8 +112,16 @@ gulp.task('browserSync', function () {
   });
 });
 
+// Social icons adblock guard
+gulp.task('glyph', function () {
+  return gulp.src('fontello-config.json')
+    .pipe(plugins.fontello())
+    .pipe(print())
+    .pipe(gulp.dest('glyphs'))
+});
+
 // Default task
-gulp.task('default', ['css', 'js', 'vendor']);
+gulp.task('default', ['css', 'js', 'vendor', 'glyph']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
