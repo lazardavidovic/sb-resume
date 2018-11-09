@@ -58,3 +58,12 @@ section.resume-section {
       }
     }
   }
+
+  .dev-icons {
+    font-size: 2rem;
+    .list-inline-item i {
+      &:hover {
+        color: $primary;
+      }
+    }
+  }

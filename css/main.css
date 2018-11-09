@@ -166,6 +166,14 @@ p.lead {
   background-color: #212529;
 }
 
+.dev-icons {
+  font-size: 2rem;
+}
+
+.dev-icons .list-inline-item i:hover {
+  color: #212529;
+}
+
 .bg-primary {
   background-color: #212529 !important;
 }
