@@ -50,11 +50,22 @@
         return $.ajax();
     }
 
+    function activateImageModal() {
+        $("#pop").on("click", function () {
+            $('#imagepreview').attr('src', $('#imageresource').attr('src'));
+            $('#imagemodal').modal('show');
+        });
+
+        return $.ajax();
+    }
+
     // Main flow
     $(includeHTMLFiles().done(function () {
         enableSmoothScroll().done(function () {
             closeResponsiveMenu().done(function () {
-                activateScrollspy()
+                activateScrollspy().done(function () {
+                    activateImageModal()
+                })
             })
         })
     })
