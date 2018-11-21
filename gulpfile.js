@@ -127,7 +127,7 @@ gulp.task('glyph', function () {
 });
 
 // Default task
-gulp.task('default', ['css', 'js', 'vendor', 'glyph']);
+gulp.task('default', ['css', 'js', 'vendor', 'glyph', 'dist']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
@@ -143,4 +143,63 @@ gulp.task('dev', ['css', 'js', 'browserSync'], function () {
   gulp.watch('./scss/*.scss', ['css']);
   gulp.watch('./js/*.js', ['js']);
   gulp.watch('./*.html', browserSync.reload);
+});
+
+// Create website with required files - distribution
+gulp.task('dist', function () {
+
+  // Main index
+  gulp.src([
+    './index.html',
+  ])
+    .pipe(gulp.dest('./docs'))
+
+  // Sections
+  gulp.src([
+    './sections/**/*',
+  ])
+    .pipe(gulp.dest('./docs/sections'))
+
+  // Images
+  gulp.src([
+    './img/**/*',
+  ])
+    .pipe(gulp.dest('./docs/img'))
+
+  // Main favicon
+  gulp.src([
+    './favicons.ico',
+  ])
+    .pipe(gulp.dest('./docs'))
+
+  // Favicons
+  gulp.src([
+    './favicons/**/*',
+  ])
+    .pipe(gulp.dest('./docs/favicons'))
+
+  // CSS
+  gulp.src([
+    './css/**/*',
+  ])
+    .pipe(gulp.dest('./docs/css'))
+
+  // JavaScript
+  gulp.src([
+    './js/**/*',
+  ])
+    .pipe(gulp.dest('./docs/js'))
+
+  // Vendor plugins
+  gulp.src([
+    './vendor/**/*',
+  ])
+    .pipe(gulp.dest('./docs/vendor'))
+
+  // Glyphs
+  gulp.src([
+    './glyphs/**/*',
+  ])
+    .pipe(gulp.dest('./docs/glyphs'))
+
 });
