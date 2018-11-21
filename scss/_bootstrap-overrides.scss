@@ -16,4 +16,13 @@
       color: darken($primary, 15%);
     }
   }
-  
+
+.center-dropdown {
+  left: auto;
+  right: -70%;
+}
+
+.center-dropdown:after {
+   left: auto;
+   right: 45%;
+}

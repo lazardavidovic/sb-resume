@@ -1,11 +1,11 @@
 (function ($) {
     "use strict"; // Start of use strict
 
-    //Include HTML files
-    function includeHTMLFiles() {
+    //Include HTML section files
+    function includeHTMLSectionFiles() {
         var includes = $('[data-include]');
         jQuery.each(includes, function () {
-            var file = $(this).data('include') + '.html';
+            var file = 'pages/' + $(this).data('include') + '.html';
             $(this).load(file);
         });
 
@@ -59,44 +59,9 @@
         return $.ajax();
     }
 
-    function processingLanguage() {
-        var activeLanguages = ['en', 'sr'];
-        var languageParameter = getLanguageParamater();
-        var languageCookie = readLanguageCookie();
-
-
-        if (languageParameter && $.inArray(languageParameter, activeLanguages) != -1) {
-            setLanguage(languageParameter);
-        }
-        else
-            if (languageCookie && $.inArray(languageCookie, activeLanguages) != -1) {
-                setLanguage(languageCookie);
-            }
-            else {
-                setLanguage('en');
-                window.location.reload();
-            }
-
-        function getLanguageParamater() {
-            var regexS = "[\\?&]lang=([^&#]*)";
-            var regex = new RegExp(regexS);
-            var results = regex.exec(window.location.href);
-            if (results)
-                return results[1];
-            else
-                return null;
-        }
-
-        function readLanguageCookie() {
-            return Cookies.get('lang');
-        }
-
-        return $.ajax();
-    }
-
     // Main flow
-    $(includeHTMLFiles().done(function () {
-        processingLanguage().done(function () {
+    $(includeHTMLSectionFiles()
+        .done(function () {
             enableSmoothScroll().done(function () {
                 closeResponsiveMenu().done(function () {
                     activateScrollspy().done(function () {
@@ -105,33 +70,6 @@
                 })
             })
         })
-    })
     );
 
 })(jQuery); // End of use strict
-
-function setLanguage(language) {
-
-    if (window.history.replaceState) {
-        // Prevents browser from storing history with each change
-        window.history.replaceState({}, {}, "?lang=" + language);
-    }
-
-    setLanguageCookie(language);
-    processingLanguageAttributes(language);
-
-    function setLanguageCookie(language) {
-        Cookies.set('lang', language);
-    }
-
-    function processingLanguageAttributes(language) {
-        $("[lang]").each(function () {
-            if ($(this).attr("lang") == language) {
-                $(this).show();
-            }
-            else {
-                $(this).hide();
-            }
-        });
-    }
-}

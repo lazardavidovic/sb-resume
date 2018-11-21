@@ -40,6 +40,12 @@ gulp.task('vendor', function () {
   ])
     .pipe(gulp.dest('./vendor/jquery-easing'))
 
+  // js-cookie
+  gulp.src([
+    './node_modules/js-cookie/src/js.cookie.js'
+  ])
+    .pipe(gulp.dest('./vendor/js-cookie'))
+
 });
 
 // Set the banner content for JavaScript and CSS
