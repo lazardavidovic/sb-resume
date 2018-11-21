@@ -111,6 +111,12 @@
         return $.ajax();
     }
 
+    function showFullLoadedPage() {
+        $("html")[0].style.visibility = "visible";
+
+        return $.ajax();
+    }
+
     // Main flow
     $(includeHTMLFiles().done(function () {
         preventOpenLinks().done(function () {
@@ -118,7 +124,9 @@
                 enableSmoothScroll().done(function () {
                     closeResponsiveMenu().done(function () {
                         activateScrollspy().done(function () {
-                            activateImageModal()
+                            activateImageModal().done(function () {
+                                showFullLoadedPage()
+                            })
                         })
                     })
                 })
