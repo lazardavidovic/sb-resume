@@ -12,6 +12,23 @@
         return $.ajax();
     }
 
+    // Prevent open links start with '#'
+    function preventOpenLinks() {
+        $('.prevent-open-links').click(function (e) {
+            e.preventDefault();
+
+            var pageRef = $(this).attr("href");
+
+            if (pageRef[0] != '#') {
+                window.location.href = pageRef;
+            } else {
+                // 
+            }
+        });
+
+        return $.ajax();
+    }
+
     // Smooth scrolling using jQuery easing
     function enableSmoothScroll() {
         var links = $('a.js-scroll-trigger[href*="#"]:not([href="#"])');
@@ -96,11 +113,13 @@
 
     // Main flow
     $(includeHTMLFiles().done(function () {
-        processingLanguage().done(function () {
-            enableSmoothScroll().done(function () {
-                closeResponsiveMenu().done(function () {
-                    activateScrollspy().done(function () {
-                        activateImageModal()
+        preventOpenLinks().done(function () {
+            processingLanguage().done(function () {
+                enableSmoothScroll().done(function () {
+                    closeResponsiveMenu().done(function () {
+                        activateScrollspy().done(function () {
+                            activateImageModal()
+                        })
                     })
                 })
             })
